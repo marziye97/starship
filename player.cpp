@@ -3,6 +3,8 @@
 #include <QKeyEvent>
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
+    //set the picture of player
+
     setPixmap(QPixmap(":/pic/player.png"));
 }
 
