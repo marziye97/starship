@@ -14,11 +14,21 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     game.cpp \
-    player.cpp
+    player.cpp \
+    enemy.cpp \
+    spaceship.cpp \
+    bullet.cpp \
+    bullet1.cpp \
+    bullet2.cpp
 
 HEADERS  += \
     game.h \
-    player.h
+    player.h \
+    enemy.h \
+    spaceship.h \
+    bullet.h \
+    bullet1.h \
+    bullet2.h
 
 FORMS    +=
 

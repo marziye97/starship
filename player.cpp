@@ -1,9 +1,13 @@
 #include "player.h"
 #include <QGraphicsScene>
 #include <QKeyEvent>
+#include "spaceship.h"
+#include<QGraphicsItem>
+#include "bullet.h"
+
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
-    //set the picture of player
+    //set the picture of player.....
 
     setPixmap(QPixmap(":/pic/player.png"));
 }
@@ -26,5 +30,18 @@ void Player::keyPressEvent(QKeyEvent *event)
         if(pos().y()+100 <600)
         setPos(x() , y()+10);
     }
+    // shoot with the spacebar
+    else if (event->key() == Qt::Key_Space){
+        // create a bullet
+        Bullet * bullet = new Bullet();
+        bullet->setPos(x(),y());
+        scene()->addItem(bullet);
+    }
+
 }
 
+void Player::spawn(){
+    // create an spaceship
+    spaceship * ship = new spaceship();
+    scene()->addItem(ship);
+}
