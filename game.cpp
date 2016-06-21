@@ -1,6 +1,7 @@
 #include "game.h"
 #include <QBrush>
 #include <QImage>
+#include <QTimer>
 
 //it's the main class of this project ;)
 
@@ -21,6 +22,16 @@ Game::Game(QWidget *parent)
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
     scene->addItem(player);
+
+    score = new Score();
+    scene->addItem(score);
+    health = new Health();
+    health->setPos(health->x(),health->y()+25);
+    scene->addItem(health);
+
+    QTimer *timer = new QTimer();
+    QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
+    timer->start(2000);
 
     show();
 }

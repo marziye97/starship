@@ -3,10 +3,10 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 
-class enemy:public QObject,public QGraphicsPixmapItem{
+class Enemy:public QObject,public QGraphicsPixmapItem{
     Q_OBJECT
 public:
-    enemy(QGraphicsItem * parent=0);
+    Enemy(QGraphicsItem * parent=0);
 public slots:
     virtual void move() = 0;
 };

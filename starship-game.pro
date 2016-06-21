@@ -19,7 +19,12 @@ SOURCES += main.cpp \
     spaceship.cpp \
     bullet.cpp \
     bullet1.cpp \
-    bullet2.cpp
+    bullet2.cpp \
+    score.cpp \
+    health.cpp \
+    award.cpp \
+    award1.cpp \
+    award2.cpp
 
 HEADERS  += \
     game.h \
@@ -28,7 +33,12 @@ HEADERS  += \
     spaceship.h \
     bullet.h \
     bullet1.h \
-    bullet2.h
+    bullet2.h \
+    score.h \
+    health.h \
+    award.h \
+    award1.h \
+    award2.h
 
 FORMS    +=
 

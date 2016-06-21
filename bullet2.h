@@ -2,10 +2,10 @@
 #define BULLET2_H
 #include "bullet.h"
 
-class bullet2:public Bullet
+class Bullet2:public Bullet
 {
 public:
-    bullet2(QGraphicsItem * parent=0);
+    Bullet2(QGraphicsItem * parent=0);
 };
 
 #endif // BULLET2_H

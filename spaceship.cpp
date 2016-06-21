@@ -1,9 +1,12 @@
 #include "spaceship.h"
 #include <QGraphicsScene>
 #include <QList>
+#include "game.h"
 #include <stdlib.h> // rand() -> really large int
 
-spaceship::spaceship():enemy(QGraphicsItem *parent)
+extern Game * game;
+
+spaceship::spaceship(QGraphicsItem *parent):Enemy(parent)
 {
     int random_number = rand() % 700;
     setPos(random_number,0);
@@ -12,7 +15,7 @@ spaceship::spaceship():enemy(QGraphicsItem *parent)
     //setRect(0,0,100,100);
     setPixmap(QPixmap(":/pic/ship.gif"));
 }
-spaceship::move(){
+void spaceship::move(){
     // move enemy down
     setPos(x(),y()+5);
 

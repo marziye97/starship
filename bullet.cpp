@@ -2,9 +2,9 @@
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QList>
-#include "enemy.h"
 #include "game.h"
-#include <typeinfo>
+#include "spaceship.h"
+
 extern Game * game; // there is an external global object called game
 
 Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
@@ -13,11 +13,11 @@ Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
     //setPixmap(QPixmap(":/pic/109.png"));
 
     // make/connect a timer to move() the bullet every so often
-    QTimer * timer = new QTimer(this);
-    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
+    //QTimer * timer = new QTimer();
+   // connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 
     // start the timer
-    timer->start(50);
+    //timer->start(50);
 }
 
 void Bullet::move(){
@@ -26,7 +26,7 @@ void Bullet::move(){
 
     // if one of the colliding items is an Enemy, destroy both the bullet and the enemy
     for (int i = 0, n = colliding_items.size(); i < n; ++i){
-        if (typeid(*(colliding_items[i])) == typeid(Enemy)){
+        if (typeid(*(colliding_items[i])) == typeid(spaceship)){
             // increase the score
             game->score->increase();
 

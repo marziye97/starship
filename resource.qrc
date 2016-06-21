@@ -4,5 +4,6 @@
         <file>player.png</file>
         <file>ship.gif</file>
         <file>bullet1.png</file>
+        <file>bullet2.png</file>
     </qresource>
 </RCC>

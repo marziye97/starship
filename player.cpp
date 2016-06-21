@@ -3,7 +3,11 @@
 #include <QKeyEvent>
 #include "spaceship.h"
 #include<QGraphicsItem>
-#include "bullet.h"
+#include "bullet1.h"
+#include "bullet2.h"
+#include "game.h"
+
+extern Game * game;
 
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
@@ -30,12 +34,20 @@ void Player::keyPressEvent(QKeyEvent *event)
         if(pos().y()+100 <600)
         setPos(x() , y()+10);
     }
+
     // shoot with the spacebar
     else if (event->key() == Qt::Key_Space){
         // create a bullet
-        Bullet * bullet = new Bullet();
-        bullet->setPos(x(),y());
-        scene()->addItem(bullet);
+        if(game->score->getscore()<500){
+            Bullet1 * bullet1 = new Bullet1();
+            bullet1->setPos(x()+10,y());
+            scene()->addItem(bullet1);
+        }
+        else if(game->score->getscore()>500){
+            Bullet2 * bullet2 = new Bullet2();
+            bullet2->setPos(x(),y());
+            scene()->addItem(bullet2);
+        }
     }
 
 }

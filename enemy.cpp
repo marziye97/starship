@@ -1,9 +1,13 @@
 #include "enemy.h"
 #include <QTimer>
+#include <QGraphicsScene>
+#include <stdlib.h>
+#include "player.h"
 #include "game.h"
 
 extern Game * game;
-enemy::enemy(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
+
+Enemy::Enemy(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
     QTimer * timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));

@@ -4,7 +4,7 @@
 #include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QGraphicsItem>
-class spaceship:public enemy
+class spaceship:public Enemy
 {
 public:
     spaceship(QGraphicsItem * parent=0);
