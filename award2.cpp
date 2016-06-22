@@ -3,7 +3,7 @@
 
 Award2::Award2(QGraphicsItem *parent):Award(parent)
 {
-    award2=10;
+    award2=40;
     //open image
     QTimer *timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));

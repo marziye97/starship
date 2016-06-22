@@ -54,6 +54,6 @@ void Player::keyPressEvent(QKeyEvent *event)
 
 void Player::spawn(){
     // create an spaceship
-    spaceship * ship = new spaceship();
+    Spaceship * ship = new Spaceship();
     scene()->addItem(ship);
 }

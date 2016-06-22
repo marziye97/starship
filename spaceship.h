@@ -4,10 +4,10 @@
 #include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QGraphicsItem>
-class spaceship:public Enemy
+class Spaceship:public Enemy
 {
 public:
-    spaceship(QGraphicsItem * parent=0);
+    Spaceship(QGraphicsItem * parent=0);
 private slots:
     void move();
 };

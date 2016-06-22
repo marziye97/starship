@@ -17,7 +17,7 @@ void Bullet::move(){
 
     // if one of the colliding items is an Enemy, destroy both the bullet and the enemy
     for (int i = 0, n = colliding_items.size(); i < n; ++i){
-        if (typeid(*(colliding_items[i])) == typeid(spaceship)){
+        if (typeid(*(colliding_items[i])) == typeid(Spaceship)){
             // increase the score
             game->score->increase();
             Award1 * award1 = new Award1();
