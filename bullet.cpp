@@ -4,20 +4,11 @@
 #include <QList>
 #include "game.h"
 #include "spaceship.h"
+#include "award1.h"
 
 extern Game * game; // there is an external global object called game
 
 Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
-    // drew the bullet (a rectangle)
-   // setRect(0,0,10,50);
-    //setPixmap(QPixmap(":/pic/109.png"));
-
-    // make/connect a timer to move() the bullet every so often
-    //QTimer * timer = new QTimer();
-   // connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-
-    // start the timer
-    //timer->start(50);
 }
 
 void Bullet::move(){
@@ -29,6 +20,9 @@ void Bullet::move(){
         if (typeid(*(colliding_items[i])) == typeid(spaceship)){
             // increase the score
             game->score->increase();
+            Award1 * award1 = new Award1();
+            award1->setPos(x(),y());
+            scene()->addItem(award1);
 
             // remove them from the scene (still on the heap)
             scene()->removeItem(colliding_items[i]);
