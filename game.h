@@ -6,17 +6,23 @@
 #include "player.h"
 #include "score.h"
 #include "health.h"
-#include "button.h"
+#include "bottun.h"
+#include <QObject>
 
 class Game:public QGraphicsView
 {
+    Q_OBJECT
 public:
     Game(QWidget * parent = 0);
     QGraphicsScene *scene;
     Score *score;
     Player *player;
     Health *health;
-    Button * button;
+    Button * play;
+    void menu();
+    void gameOver();
+public slots:
+    void start();
 };
 
 #endif // GAME_H

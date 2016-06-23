@@ -6,5 +6,6 @@
         <file>bullet1.png</file>
         <file>bullet2.png</file>
         <file>award1.png</file>
+        <file>play-icon.png</file>
     </qresource>
 </RCC>

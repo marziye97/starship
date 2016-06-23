@@ -2,7 +2,9 @@
 #include <QBrush>
 #include <QImage>
 #include <QTimer>
-
+#include "button.h"
+#include <QString>
+#include <QDebug>
 //it's the main class of this project ;)
 
 Game::Game(QWidget *parent)
@@ -16,7 +18,21 @@ Game::Game(QWidget *parent)
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(1000,900);
+    //show();
 
+    //menu();
+}
+void Game::menu(){
+    play = new Button(QString(":/pic/play-icon.png"));
+    play->setPos(400,300);
+    scene->addItem(play);
+    connect(play,SIGNAL(clicked()),this,SLOT(start()));
+
+}
+void Game::start(){
+    qDebug() << "start";
+    scene->removeItem(play);
+    //scene->clear();
     player = new Player();
     player->setPos(450,600);
     player->setFlag(QGraphicsItem::ItemIsFocusable);
@@ -33,7 +49,8 @@ Game::Game(QWidget *parent)
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer->start(2000);
 
-    show();
 }
+void Game::gameOver(){
 
+}
 
