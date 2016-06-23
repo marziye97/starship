@@ -3,6 +3,7 @@
 #include <QGraphicsScene>
 #include "game.h"
 #include "player.h"
+#include <QList>
 
 //#include <QDebug>
 
@@ -18,8 +19,20 @@ Award::Award(QGraphicsItem *parent) : QObject() , QGraphicsPixmapItem(parent)
 
 void Award::move()
 {
+    QList<QGraphicsItem *> colliding_items = collidingItems();
+    for (int i = 0, n = colliding_items.size(); i < n; ++i){
+        if (typeid(*(colliding_items[i])) == typeid(Player)){
+            game->score->increase();
+
+            scene()->removeItem(this);
+            delete this;
+
+            return;
+        }
+    }
+
     setPos(x(),y()+5);
-    if(pos().y() > 600){
+    if(pos().y() > 900){
         game->health->decrease();
         scene()->removeItem(this);
         delete this;

@@ -24,7 +24,8 @@ SOURCES += main.cpp \
     health.cpp \
     award.cpp \
     award1.cpp \
-    award2.cpp
+    award2.cpp \
+    bubble.cpp
 
 HEADERS  += \
     game.h \
@@ -38,7 +39,8 @@ HEADERS  += \
     health.h \
     award.h \
     award1.h \
-    award2.h
+    award2.h \
+    bubble.h
 
 FORMS    +=
 
