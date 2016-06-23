@@ -1,6 +1,8 @@
 #include "spaceship.h"
 #include <QGraphicsScene>
 #include "game.h"
+#include <QList>
+#include <typeinfo>
 #include <stdlib.h> // rand() -> really large int
 
 extern Game * game;
@@ -15,6 +17,15 @@ Spaceship::Spaceship(QGraphicsItem *parent):Enemy(parent)
     setPixmap(QPixmap(":/pic/ship.gif"));
 }
 void Spaceship::move(){
+    QList<QGraphicsItem *> colliding_items = collidingItems();
+    for (int i = 0, n = colliding_items.size(); i < n; ++i){
+        if (typeid(*(colliding_items[i])) == typeid(Player)){
+            game->health->decrease();
+            scene()->removeItem(this);
+            delete this;
+            return;
+        }
+    }
     // move enemy down
     setPos(x(),y()+5);
 

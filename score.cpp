@@ -10,7 +10,7 @@
 #include <QDebug>
 Score::Score(QGraphicsItem *parent):QGraphicsTextItem(parent)
 {
-    QFile scoreFile("/home/mary/Documents/qt/starship-game-v2/client/score.txt");
+    QFile scoreFile("C:/Users/Marzi/Documents/starship/score.txt");
     if(!scoreFile.exists())
         qDebug()<<"doesn't exist";
     if(!scoreFile.open(QFile::ReadOnly|QFile::Text)){
