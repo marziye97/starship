@@ -1,11 +1,11 @@
 <RCC>
     <qresource prefix="/pic">
-        <file>bg.jpg</file>
         <file>player.png</file>
         <file>ship.gif</file>
         <file>bullet1.png</file>
         <file>bullet2.png</file>
         <file>award1.png</file>
         <file>play-icon.png</file>
+        <file>bg.jpg</file>
     </qresource>
 </RCC>

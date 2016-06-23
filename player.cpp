@@ -40,12 +40,12 @@ void Player::keyPressEvent(QKeyEvent *event)
         // create a bullet
         if(game->score->getscore()<500){
             Bullet1 * bullet1 = new Bullet1();
-            bullet1->setPos(x(),y());
+            bullet1->setPos(x()+40,y());
             scene()->addItem(bullet1);
         }
         else if(game->score->getscore()>500){
             Bullet2 * bullet2 = new Bullet2();
-            bullet2->setPos(x(),y());
+            bullet2->setPos(x()+40,y());
             scene()->addItem(bullet2);
         }
     }
