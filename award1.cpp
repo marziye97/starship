@@ -5,7 +5,12 @@
 Award1::Award1(QGraphicsItem *parent):Award(parent)
 {
     award1=10;
-    setPixmap(QPixmap(":/pic/bullet2.png"));
+    //QPixmap watermark(":/icoMenu/pic/award1.png");
+    //watermark.scaled(QSize(50,50),  Qt::KeepAspectRatio);
+    //QPixmap watermark(QSize(10,10));
+    //watermark.load(":/pic/award1.png");
+
+    setPixmap(QPixmap(":/pic/award1.png"));
     QTimer *timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 

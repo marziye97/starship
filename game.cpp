@@ -9,16 +9,16 @@ Game::Game(QWidget *parent)
 {
 
     scene = new QGraphicsScene();
-    scene ->setSceneRect(0,0,800,600);
+    scene ->setSceneRect(0,0,1000,900);
     setBackgroundBrush(QImage(":/pic/bg.jpg"));
 
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(800,600);
+    setFixedSize(1000,900);
 
     player = new Player();
-    player->setPos(400,500);
+    player->setPos(400,800);
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
     scene->addItem(player);
