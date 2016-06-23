@@ -50,4 +50,6 @@ RESOURCES += \
     resource.qrc
 
 OTHER_FILES += \
-    score.txt
+    score.txt \
+    health.txt \
+    level.txt

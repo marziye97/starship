@@ -4,12 +4,26 @@
 #include <QTimer>
 #include "button.h"
 #include <QString>
+#include <QFile>
+#include <QTextStream>
+#include <sstream>
+#include <string>
 #include <QDebug>
 //it's the main class of this project ;)
 
 Game::Game(QWidget *parent)
 {
-
+    int level;
+    QFile levelfile("C:/Users/Marzi/Documents/starship/level.txt");
+    if(!levelfile.exists())
+        qDebug()<<"doesn't exist";
+    if(!levelfile.open(QFile::ReadOnly|QFile::Text)){
+        return;
+    }
+    QTextStream in(&levelfile);
+    QString s = in.readAll();
+    level = s.split(" ")[0].toInt();
+    qDebug() << level;
     scene = new QGraphicsScene();
     scene ->setSceneRect(0,0,1000,900);
     setBackgroundBrush(QImage(":/pic/bg.jpg"));

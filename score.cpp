@@ -28,6 +28,15 @@ Score::Score(QGraphicsItem *parent):QGraphicsTextItem(parent)
 void Score::increase()
 {
     score +=100;
+    QFile scoreFile("C:/Users/Marzi/Documents/starship/score.txt");
+    if(!scoreFile.exists())
+        qDebug()<<"doesn't exist";
+    if(!scoreFile.open(QFile::WriteOnly|QFile::Text)){
+        return;
+    }
+    QTextStream out(&scoreFile);
+    out << QString::number(score);
+    qDebug() << score;
     setPlainText(QString("Score: ") + QString::number(score));
 }
 
