@@ -5,6 +5,7 @@
 #include "player.h"
 #include "award1.h"
 #include <QList>
+#include <typeinfo>
 
 //#include <QDebug>
 

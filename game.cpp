@@ -18,7 +18,7 @@ Game::Game(QWidget *parent)
     setFixedSize(1000,900);
 
     player = new Player();
-    player->setPos(400,800);
+    player->setPos(450,600);
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
     scene->addItem(player);

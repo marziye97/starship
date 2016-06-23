@@ -5,7 +5,7 @@
 #include "game.h"
 #include "spaceship.h"
 #include "award1.h"
-
+#include <typeinfo>
 Award1 *award1;
 extern Game * game; // there is an external global object called game
 
