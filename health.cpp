@@ -10,7 +10,7 @@
 
 Health::Health(QGraphicsItem *parent):QGraphicsTextItem(parent)
 {
-    QFile healthfile("C:/Users/Marzi/Documents/starship/health.txt");
+    QFile healthfile("/home/mary/Documents/qt/starship/health.txt");
     if(!healthfile.exists())
         qDebug()<<"doesn't exist";
     if(!healthfile.open(QFile::ReadOnly|QFile::Text)){
@@ -28,7 +28,7 @@ Health::Health(QGraphicsItem *parent):QGraphicsTextItem(parent)
 void Health::decrease()
 {
     health--;
-    QFile healthfile("C:/Users/Marzi/Documents/starship/health.txt");
+    QFile healthfile("/home/mary/Documents/qt/starship/health.txt");
     if(!healthfile.exists())
         qDebug()<<"doesn't exist";
     if(!healthfile.open(QFile::WriteOnly|QFile::Text)){

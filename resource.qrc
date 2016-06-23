@@ -7,5 +7,6 @@
         <file>award1.png</file>
         <file>play-icon.png</file>
         <file>bg.jpg</file>
+        <file>gameOver.gif</file>
     </qresource>
 </RCC>
