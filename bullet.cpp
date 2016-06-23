@@ -6,6 +6,7 @@
 #include "spaceship.h"
 #include "award1.h"
 
+Award1 *award1;
 extern Game * game; // there is an external global object called game
 
 Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
@@ -20,7 +21,7 @@ void Bullet::move(){
         if (typeid(*(colliding_items[i])) == typeid(Spaceship)){
             // increase the score
             game->score->increase();
-            Award1 * award1 = new Award1();
+            award1 = new Award1();
             award1->setPos(x(),y());
             scene()->addItem(award1);
 
