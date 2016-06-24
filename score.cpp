@@ -8,6 +8,7 @@
 #include <string>
 #include <QDebug>
 #include "game.h"
+#include <Windows.h>
 
 extern Game *game;
 Score::Score(QGraphicsItem *parent):QGraphicsTextItem(parent)
@@ -21,7 +22,6 @@ Score::Score(QGraphicsItem *parent):QGraphicsTextItem(parent)
     QTextStream in(&scoreFile);
     QString s = in.readAll();
     score = s.split(" ")[0].toInt();
-    qDebug() << score;
     scoreFile.close();
     setPlainText(QString("Score: ") + QString::number(score));
     setDefaultTextColor(Qt::blue);
@@ -39,7 +39,6 @@ void Score::increase()
     }
     QTextStream out(&scoreFile);
     out << QString::number(score);
-    qDebug() << score;
     scoreFile.close();
     setPlainText(QString("Score: ") + QString::number(score));
     if(score >= (game->level->getlevel()*1000)){
@@ -58,7 +57,6 @@ void Score::increase(int val)
     }
     QTextStream out(&scoreFile);
     out << QString::number(score);
-    qDebug() << score;
     scoreFile.close();
     setPlainText(QString("Score: ") + QString::number(score));
 }
@@ -79,7 +77,6 @@ void Score::setscore(int nscore)
     }
     QTextStream out(&scoreFile);
     out << QString::number(score);
-    qDebug() << score;
     scoreFile.close();
     setPlainText(QString("Score: ") + QString::number(score));
 }

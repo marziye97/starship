@@ -16,8 +16,6 @@ Bubble1::Bubble1(QGraphicsItem *parent)
     setPixmap(QPixmap(":/pic/bubble.png"));
     QTimer * timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-
-    // start the timer
     timer->start(50);
 }
 

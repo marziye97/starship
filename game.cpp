@@ -9,7 +9,7 @@
 #include <sstream>
 #include <string>
 #include <QDebug>
-//it's the main class of this project ;)
+
 
 Game::Game(QWidget *parent)
 {
@@ -21,9 +21,6 @@ Game::Game(QWidget *parent)
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(1000,900);
-    //show();
-
-    //menu();
 }
 void Game::menu(){
     play = new Button(QString(":/pic/play-icon.png"));

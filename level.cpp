@@ -20,7 +20,6 @@ Level::Level(QGraphicsItem *parent):QGraphicsTextItem(parent)
     QTextStream in(&levelFile);
     QString s = in.readAll();
     level = s.split(" ")[0].toInt();
-    qDebug() << level;
     levelFile.close();
     setPlainText(QString("Level: ") + QString::number(level));
     setDefaultTextColor(Qt::white);
@@ -31,6 +30,7 @@ void Level::increase()
 {
     game->score->setscore(0);
     game->health->sethealth(7);
+    game->health->increase();
     level ++;
     QFile levelFile("C:/Users/Marzi/Documents/starship/level.txt");
     if(!levelFile.exists())
@@ -40,7 +40,6 @@ void Level::increase()
     }
     QTextStream out(&levelFile);
     out << QString::number(level);
-    qDebug() << level;
     levelFile.close();
     setPlainText(QString("level: ") + QString::number(level));
 }
@@ -61,7 +60,6 @@ void Level::setlevel(int nlevel)
     }
     QTextStream out(&levelFile);
     out << QString::number(level);
-    qDebug() << level;
     levelFile.close();
     setPlainText(QString("level: ") + QString::number(level));
 

@@ -21,7 +21,6 @@ Health::Health(QGraphicsItem *parent):QGraphicsTextItem(parent)
     QTextStream in(&healthFile);
     QString s = in.readAll();
     health = s.split(" ")[0].toInt();
-    qDebug() << health;
     healthFile.close();
     setPlainText(QString("Health: ") + QString::number(health));
     setDefaultTextColor(Qt::red);
@@ -42,7 +41,21 @@ void Health::decrease()
     }
     QTextStream out(&healthFile);
     out << QString::number(health);
-    qDebug() << health;
+    healthFile.close();
+    setPlainText(QString("Health: ") + QString::number(health));
+}
+
+void Health::increase()
+{
+    health++;
+    QFile healthFile("C:/Users/Marzi/Documents/starship/health.txt");
+    if(!healthFile.exists())
+        qDebug()<<"doesn't exist";
+    if(!healthFile.open(QFile::WriteOnly|QFile::Text)){
+        return;
+    }
+    QTextStream out(&healthFile);
+    out << QString::number(health);
     healthFile.close();
     setPlainText(QString("Health: ") + QString::number(health));
 }
@@ -63,7 +76,6 @@ void Health::sethealth(int nhealth)
     }
     QTextStream out(&healthFile);
     out << QString::number(health);
-    qDebug() << health;
     healthFile.close();
     setPlainText(QString("Health: ") + QString::number(health));
 }
