@@ -5,9 +5,9 @@
         <file>bullet1.png</file>
         <file>bullet2.png</file>
         <file>award1.png</file>
-        <file>play-icon.png</file>
         <file>bg.jpg</file>
         <file>gameOver.gif</file>
         <file>award2.png</file>
+        <file>play-icon.png</file>
     </qresource>
 </RCC>

@@ -27,7 +27,7 @@ Game::Game(QWidget *parent)
 }
 void Game::menu(){
     play = new Button(QString(":/pic/play-icon.png"));
-    play->setPos(400,300);
+    play->setPos(300,300);
     scene->addItem(play);
     connect(play,SIGNAL(clicked()),this,SLOT(start()));
 
