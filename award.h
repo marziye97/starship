@@ -8,7 +8,7 @@ class Award:public QObject,public QGraphicsPixmapItem{
 public:
     Award(QGraphicsItem * parent=0);
 public slots:
-    void move();
+    virtual void move()=0;
 };
 
 

@@ -5,8 +5,10 @@
 #include "game.h"
 #include "spaceship.h"
 #include "award1.h"
+#include "award2.h"
+#include <stdlib.h>
 #include <typeinfo>
-Award1 *award1;
+
 extern Game * game; // there is an external global object called game
 
 Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
@@ -21,10 +23,17 @@ void Bullet::move(){
         if (typeid(*(colliding_items[i])) == typeid(Spaceship)){
             // increase the score
             game->score->increase();
-            award1 = new Award1();
-            award1->setPos(x(),y());
-            scene()->addItem(award1);
-
+            int random_numbetr= (rand()%2)+1;
+            if(random_numbetr == 1){
+                Award1 * award1 = new Award1();
+                award1->setPos(x(),y());
+                scene()->addItem(award1);
+            }
+            else if(random_numbetr == 2){
+                Award2 * award2 = new Award2();
+                award2->setPos(x(),y());
+                scene()->addItem(award2);
+            }
             // remove them from the scene (still on the heap)
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);

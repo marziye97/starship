@@ -8,6 +8,8 @@ public:
     int getaward1();
 private:
     int award1;
+public slots:
+    void move();
 };
 
 #endif // AWARD1_H
