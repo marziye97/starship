@@ -1,4 +1,6 @@
 #include "player.h"
+#include "bubble1.h"
+#include "bubble2.h"
 #include <QGraphicsScene>
 #include <QKeyEvent>
 #include "spaceship.h"
@@ -61,6 +63,16 @@ void Player::keyPressEvent(QKeyEvent *event)
 
 void Player::spawn(){
     // create an spaceship
-    ship = new Spaceship();
-    scene()->addItem(ship);
+    if(game->level->getlevel() >= 3 ){
+        Bubble1 *bubble1 = new Bubble1();
+        scene()->addItem(bubble1);
+        Bubble2 *bubble2 = new Bubble2();
+        scene()->addItem(bubble2);
+        ship = new Spaceship();
+        scene()->addItem(ship);
+    }
+    else if(game->level->getlevel() <=2){
+        ship = new Spaceship();
+        scene()->addItem(ship);
+    }
 }

@@ -9,5 +9,8 @@
         <file>gameOver.gif</file>
         <file>award2.png</file>
         <file>play-icon.png</file>
+        <file>exit.png</file>
+        <file>restart.png</file>
+        <file>bubble.png</file>
     </qresource>
 </RCC>

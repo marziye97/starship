@@ -39,15 +39,16 @@ void Bullet1::move()
                 award2->setPos(x(),y());
                 scene()->addItem(award2);
             }
-            if(power1 == ship->getpower()){
+            /*if(power1 == ship->getpower()){
                 scene()->removeItem(colliding_items[i]);
                 delete colliding_items[i];
             }
             else{
                 power1 -= ship->getpower();
                 break;
-            }
-
+            }*/
+            scene()->removeItem(colliding_items[i]);
+            delete colliding_items[i];
             scene()->removeItem(this);
             delete this;
             return;

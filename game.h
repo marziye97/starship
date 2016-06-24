@@ -20,6 +20,8 @@ public:
     Player *player;
     Health *health;
     Button * play;
+    Button * restart;
+    Button *exit;
     Level *level;
     void menu();
     void gameOver();

@@ -63,9 +63,13 @@ void Game::gameOver(){
     scene->removeItem(player);
     scene->removeItem(score);
     scene->removeItem(health);
-    play = new Button(QString(":/pic/gameOver.gif"));
-    play->setPos(350,300);
-    scene->addItem(play);
-    //connect(play,SIGNAL(clicked()),this,SLOT(start()));
+    restart = new Button(QString(":/pic/restart.png"));
+    restart->setPos(350,300);
+    scene->addItem(restart);
+    exit = new Button(QString(":/pic/exit.png"));
+    exit->setPos(350,400);
+    scene->addItem(exit);
+    connect(restart,SIGNAL(clicked()),this,SLOT(start()));
+    connect(exit,SIGNAL(clicked()),this,SLOT(close()));
 }
 

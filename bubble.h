@@ -1,12 +1,14 @@
 #ifndef BUBBLE_H
 #define BUBBLE_H
-#include "enemy.h"
+#include <QObject>
+#include <QGraphicsPixmapItem>
 
-class Bubble:public Enemy{
+class Bubble:public QObject,public QGraphicsPixmapItem{
+    Q_OBJECT
 public:
     Bubble(QGraphicsItem * parent=0);
 private slots:
-    void move();
+    virtual void move()=0;
 };
 
 #endif // BUBBLE_H

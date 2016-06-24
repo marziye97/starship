@@ -27,7 +27,9 @@ SOURCES += main.cpp \
     award2.cpp \
     bubble.cpp \
     bottun.cpp \
-    level.cpp
+    level.cpp \
+    bubble1.cpp \
+    bubble2.cpp
 
 HEADERS  += \
     game.h \
@@ -44,7 +46,9 @@ HEADERS  += \
     award2.h \
     bubble.h \
     bottun.h \
-    level.h
+    level.h \
+    bubble1.h \
+    bubble2.h
 
 FORMS    +=
 
