@@ -6,9 +6,10 @@
 
 Bubble::Bubble(QGraphicsItem *parent):Enemy(parent)
 {
-    int random_number = rand() % 900;
-    setPos(random_number,0);
-    setPixmap(QPixmap(":/pic/bullet1.png"));
+    int random_x = rand() % 800;
+    int random_y = rand() % 900;
+    setPos(random_x,random_y);
+    setPixmap(QPixmap(":/pic/award1.png"));
     QTimer * timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 
@@ -18,10 +19,6 @@ Bubble::Bubble(QGraphicsItem *parent):Enemy(parent)
 
 void Bubble::move()
 {
-    int random_x1=rand() % 900;
-    int random_y1=rand() % 800;
-    int random_x2=rand() % 900;
-    int random_y2=rand() % 800;
-    QLineF ln(random_x1,random_y1,random_x2,random_y2);
-
+    setPos(x()-5,y()-5);
+    //remove
 }

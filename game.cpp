@@ -13,17 +13,6 @@
 
 Game::Game(QWidget *parent)
 {
-    int level;
-//    QFile levelfile("/home/mary/Documents/qt/starship/level.txt");
-//    if(!levelfile.exists())
-//        qDebug()<<"doesn't exist";
-//    if(!levelfile.open(QFile::ReadOnly|QFile::Text)){
-//        return;
-//    }
-//    QTextStream in(&levelfile);
-//    QString s = in.readAll();
-//    level = s.split(" ")[0].toInt();
-//    qDebug() << level;
     scene = new QGraphicsScene();
     scene ->setSceneRect(0,0,1000,900);
     setBackgroundBrush(QImage(":/pic/bg.jpg"));
@@ -44,10 +33,8 @@ void Game::menu(){
 
 }
 void Game::start(){
-
     qDebug() << "start";
     scene->removeItem(play);
-    //scene->clear();
     player = new Player();
     player->setPos(450,600);
     player->setFlag(QGraphicsItem::ItemIsFocusable);
@@ -59,13 +46,13 @@ void Game::start(){
     health = new Health();
     health->setPos(health->x(),health->y()+25);
     scene->addItem(health);
-
-
+    level = new Level();
+    level->setPos(level->x(),level->y()+50);
+    scene->addItem(level);
 
     QTimer *timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer->start(2000);
-
 
 }
 void Game::gameOver(){
@@ -75,6 +62,6 @@ void Game::gameOver(){
     play = new Button(QString(":/pic/gameOver.gif"));
     play->setPos(350,300);
     scene->addItem(play);
-    connect(play,SIGNAL(clicked()),this,SLOT(start()));
+    //connect(play,SIGNAL(clicked()),this,SLOT(start()));
 }
 

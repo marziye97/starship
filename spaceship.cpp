@@ -31,9 +31,6 @@ void Spaceship::move(){
 
     // destroy enemy when it goes out of the screen
     if (pos().y() > 900){
-        //decrease the health
-        //game->health->decrease();
-
         scene()->removeItem(this);
         delete this;
     }

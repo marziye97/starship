@@ -26,7 +26,8 @@ SOURCES += main.cpp \
     award1.cpp \
     award2.cpp \
     bubble.cpp \
-    bottun.cpp
+    bottun.cpp \
+    level.cpp
 
 HEADERS  += \
     game.h \
@@ -42,7 +43,8 @@ HEADERS  += \
     award1.h \
     award2.h \
     bubble.h \
-    bottun.h
+    bottun.h \
+    level.h
 
 FORMS    +=
 
@@ -50,6 +52,8 @@ RESOURCES += \
     resource.qrc
 
 OTHER_FILES += \
+    score.txt \
+    level.txt \
     score.txt \
     health.txt \
     level.txt

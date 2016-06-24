@@ -1,16 +1,18 @@
 #include "score.h"
-#include <QFont>
 #include "award1.h"
 #include <QFont>
 #include <QFile>
 #include <QString>
 #include <QTextStream>
-#include<sstream>
-#include<string>
+#include <sstream>
+#include <string>
 #include <QDebug>
+#include "game.h"
+
+extern Game *game;
 Score::Score(QGraphicsItem *parent):QGraphicsTextItem(parent)
 {
-    QFile scoreFile("/home/mary/Documents/qt/starship/score.txt");
+    QFile scoreFile("C:/Users/Marzi/Documents/starship/score.txt");
     if(!scoreFile.exists())
         qDebug()<<"doesn't exist";
     if(!scoreFile.open(QFile::ReadOnly|QFile::Text)){
@@ -20,6 +22,7 @@ Score::Score(QGraphicsItem *parent):QGraphicsTextItem(parent)
     QString s = in.readAll();
     score = s.split(" ")[0].toInt();
     qDebug() << score;
+    scoreFile.close();
     setPlainText(QString("Score: ") + QString::number(score));
     setDefaultTextColor(Qt::blue);
     setFont(QFont("times",16));
@@ -37,16 +40,46 @@ void Score::increase()
     QTextStream out(&scoreFile);
     out << QString::number(score);
     qDebug() << score;
+    scoreFile.close();
     setPlainText(QString("Score: ") + QString::number(score));
+    if(score >= (game->level->getlevel()*1000)){
+        game->level->increase();
+    }
 }
 
 void Score::increase(int val)
 {
     score +=val;
+    QFile scoreFile("C:/Users/Marzi/Documents/starship/score.txt");
+    if(!scoreFile.exists())
+        qDebug()<<"doesn't exist";
+    if(!scoreFile.open(QFile::WriteOnly|QFile::Text)){
+        return;
+    }
+    QTextStream out(&scoreFile);
+    out << QString::number(score);
+    qDebug() << score;
+    scoreFile.close();
     setPlainText(QString("Score: ") + QString::number(score));
 }
 
 int Score::getscore()
 {
     return score;
+}
+
+void Score::setscore(int nscore)
+{
+    score = nscore;
+    QFile scoreFile("C:/Users/Marzi/Documents/starship/score.txt");
+    if(!scoreFile.exists())
+        qDebug()<<"doesn't exist";
+    if(!scoreFile.open(QFile::WriteOnly|QFile::Text)){
+        return;
+    }
+    QTextStream out(&scoreFile);
+    out << QString::number(score);
+    qDebug() << score;
+    scoreFile.close();
+    setPlainText(QString("Score: ") + QString::number(score));
 }

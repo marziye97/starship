@@ -7,6 +7,7 @@
 #include "score.h"
 #include "health.h"
 #include "bottun.h"
+#include "level.h"
 #include <QObject>
 
 class Game:public QGraphicsView
@@ -19,6 +20,7 @@ public:
     Player *player;
     Health *health;
     Button * play;
+    Level *level;
     void menu();
     void gameOver();
 public slots:

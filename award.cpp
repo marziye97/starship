@@ -36,7 +36,6 @@ void Award::move()
 
     setPos(x(),y()+5);
     if(pos().y() > 900){
-        game->health->decrease();
         scene()->removeItem(this);
         delete this;
     }

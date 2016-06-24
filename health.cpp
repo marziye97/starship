@@ -1,25 +1,28 @@
 #include "health.h"
+#include "game.h"
 #include <QFont>
 #include <QFile>
 #include <QString>
 #include <QTextStream>
-#include<sstream>
-#include<string>
+#include <sstream>
+#include <string>
 #include <QDebug>
 
+extern Game *game;
 
 Health::Health(QGraphicsItem *parent):QGraphicsTextItem(parent)
 {
-    QFile healthfile("/home/mary/Documents/qt/starship/health.txt");
-    if(!healthfile.exists())
+    QFile healthFile("C:/Users/Marzi/Documents/starship/health.txt");
+    if(!healthFile.exists())
         qDebug()<<"doesn't exist";
-    if(!healthfile.open(QFile::ReadOnly|QFile::Text)){
+    if(!healthFile.open(QFile::ReadOnly|QFile::Text)){
         return;
     }
-    QTextStream in(&healthfile);
+    QTextStream in(&healthFile);
     QString s = in.readAll();
     health = s.split(" ")[0].toInt();
     qDebug() << health;
+    healthFile.close();
     setPlainText(QString("Health: ") + QString::number(health));
     setDefaultTextColor(Qt::red);
     setFont(QFont("times",16));
@@ -28,19 +31,39 @@ Health::Health(QGraphicsItem *parent):QGraphicsTextItem(parent)
 void Health::decrease()
 {
     health--;
-    QFile healthfile("/home/mary/Documents/qt/starship/health.txt");
-    if(!healthfile.exists())
+    if(health==0){
+        game->gameOver();
+    }
+    QFile healthFile("C:/Users/Marzi/Documents/starship/health.txt");
+    if(!healthFile.exists())
         qDebug()<<"doesn't exist";
-    if(!healthfile.open(QFile::WriteOnly|QFile::Text)){
+    if(!healthFile.open(QFile::WriteOnly|QFile::Text)){
         return;
     }
-    QTextStream out(&healthfile);
+    QTextStream out(&healthFile);
     out << QString::number(health);
     qDebug() << health;
+    healthFile.close();
     setPlainText(QString("Health: ") + QString::number(health));
 }
 
 int Health::gethealth()
 {
     return health;
+}
+
+void Health::sethealth(int nhealth)
+{
+    health = nhealth;
+    QFile healthFile("C:/Users/Marzi/Documents/starship/health.txt");
+    if(!healthFile.exists())
+        qDebug()<<"doesn't exist";
+    if(!healthFile.open(QFile::WriteOnly|QFile::Text)){
+        return;
+    }
+    QTextStream out(&healthFile);
+    out << QString::number(health);
+    qDebug() << health;
+    healthFile.close();
+    setPlainText(QString("Health: ") + QString::number(health));
 }
