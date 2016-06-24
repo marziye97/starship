@@ -7,6 +7,7 @@
 #include "bullet2.h"
 #include "game.h"
 
+Spaceship * ship;
 extern Game * game;
 
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
@@ -60,6 +61,6 @@ void Player::keyPressEvent(QKeyEvent *event)
 
 void Player::spawn(){
     // create an spaceship
-    Spaceship * ship = new Spaceship();
+    ship = new Spaceship();
     scene()->addItem(ship);
 }

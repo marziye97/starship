@@ -43,12 +43,16 @@ void Game::start(){
 
     score = new Score();
     scene->addItem(score);
+    score->setscore(0);
     health = new Health();
     health->setPos(health->x(),health->y()+25);
     scene->addItem(health);
+    health->sethealth(7);
     level = new Level();
     level->setPos(level->x(),level->y()+50);
     scene->addItem(level);
+    level->setlevel(1);
+
 
     QTimer *timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));

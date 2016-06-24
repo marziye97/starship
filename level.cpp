@@ -49,3 +49,20 @@ int Level::getlevel()
 {
     return level;
 }
+
+void Level::setlevel(int nlevel)
+{
+    level=nlevel;
+    QFile levelFile("C:/Users/Marzi/Documents/starship/level.txt");
+    if(!levelFile.exists())
+        qDebug()<<"doesn't exist";
+    if(!levelFile.open(QFile::WriteOnly|QFile::Text)){
+        return;
+    }
+    QTextStream out(&levelFile);
+    out << QString::number(level);
+    qDebug() << level;
+    levelFile.close();
+    setPlainText(QString("level: ") + QString::number(level));
+
+}

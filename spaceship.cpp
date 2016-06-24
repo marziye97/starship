@@ -9,12 +9,18 @@ extern Game * game;
 
 Spaceship::Spaceship(QGraphicsItem *parent):Enemy(parent)
 {
+    power=20;
     int random_number = rand() % 700;
     setPos(random_number,0);
 
     // drew the rect
     //setRect(0,0,100,100);
     setPixmap(QPixmap(":/pic/ship.gif"));
+}
+
+int Spaceship::getpower()
+{
+    return power;
 }
 void Spaceship::move(){
     QList<QGraphicsItem *> colliding_items = collidingItems();

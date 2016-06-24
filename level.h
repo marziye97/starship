@@ -7,6 +7,7 @@ public:
     Level(QGraphicsItem *parent =0);
     void increase();
     int getlevel();
+    void setlevel(int);
 private:
     int level;
 };
