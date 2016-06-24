@@ -25,8 +25,10 @@ public:
     Level *level;
     void menu();
     void gameOver();
+
 public slots:
     void start();
+    void Restart();
 };
 
 #endif // GAME_H

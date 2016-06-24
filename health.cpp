@@ -7,12 +7,12 @@
 #include <sstream>
 #include <string>
 #include <QDebug>
-
+#include "game.h"
 extern Game *game;
 
 Health::Health(QGraphicsItem *parent):QGraphicsTextItem(parent)
 {
-    QFile healthFile("C:/Users/Marzi/Documents/starship/health.txt");
+    QFile healthFile("/home/mary/Documents/qt/starship/health.txt");
     if(!healthFile.exists())
         qDebug()<<"doesn't exist";
     if(!healthFile.open(QFile::ReadOnly|QFile::Text)){
@@ -31,9 +31,10 @@ void Health::decrease()
 {
     health--;
     if(health==0){
+
         game->gameOver();
     }
-    QFile healthFile("C:/Users/Marzi/Documents/starship/health.txt");
+    QFile healthFile("/home/mary/Documents/qt/starship/health.txt");
     if(!healthFile.exists())
         qDebug()<<"doesn't exist";
     if(!healthFile.open(QFile::WriteOnly|QFile::Text)){
@@ -48,7 +49,7 @@ void Health::decrease()
 void Health::increase()
 {
     health++;
-    QFile healthFile("C:/Users/Marzi/Documents/starship/health.txt");
+    QFile healthFile("/home/mary/Documents/qt/starship/health.txt");
     if(!healthFile.exists())
         qDebug()<<"doesn't exist";
     if(!healthFile.open(QFile::WriteOnly|QFile::Text)){
@@ -68,7 +69,7 @@ int Health::gethealth()
 void Health::sethealth(int nhealth)
 {
     health = nhealth;
-    QFile healthFile("C:/Users/Marzi/Documents/starship/health.txt");
+    QFile healthFile("/home/mary/Documents/qt/starship/health.txt");
     if(!healthFile.exists())
         qDebug()<<"doesn't exist";
     if(!healthFile.open(QFile::WriteOnly|QFile::Text)){

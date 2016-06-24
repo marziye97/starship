@@ -8,12 +8,12 @@
 #include <string>
 #include <QDebug>
 #include "game.h"
-#include <Windows.h>
+//#include <Windows.h>
 
 extern Game *game;
 Score::Score(QGraphicsItem *parent):QGraphicsTextItem(parent)
 {
-    QFile scoreFile("C:/Users/Marzi/Documents/starship/score.txt");
+    QFile scoreFile("/home/mary/Documents/qt/starship/score.txt");
     if(!scoreFile.exists())
         qDebug()<<"doesn't exist";
     if(!scoreFile.open(QFile::ReadOnly|QFile::Text)){
@@ -31,7 +31,7 @@ Score::Score(QGraphicsItem *parent):QGraphicsTextItem(parent)
 void Score::increase()
 {
     score +=100;
-    QFile scoreFile("C:/Users/Marzi/Documents/starship/score.txt");
+    QFile scoreFile("/home/mary/Documents/qt/starship/score.txt");
     if(!scoreFile.exists())
         qDebug()<<"doesn't exist";
     if(!scoreFile.open(QFile::WriteOnly|QFile::Text)){
@@ -49,7 +49,7 @@ void Score::increase()
 void Score::increase(int val)
 {
     score +=val;
-    QFile scoreFile("C:/Users/Marzi/Documents/starship/score.txt");
+    QFile scoreFile("/home/mary/Documents/qt/starship/score.txt");
     if(!scoreFile.exists())
         qDebug()<<"doesn't exist";
     if(!scoreFile.open(QFile::WriteOnly|QFile::Text)){
@@ -69,7 +69,7 @@ int Score::getscore()
 void Score::setscore(int nscore)
 {
     score = nscore;
-    QFile scoreFile("C:/Users/Marzi/Documents/starship/score.txt");
+    QFile scoreFile("/home/mary/Documents/qt/starship/score.txt");
     if(!scoreFile.exists())
         qDebug()<<"doesn't exist";
     if(!scoreFile.open(QFile::WriteOnly|QFile::Text)){

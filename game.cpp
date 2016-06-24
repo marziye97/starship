@@ -56,6 +56,31 @@ void Game::start(){
     timer->start(2000);
 
 }
+
+void Game::Restart()
+{
+    qDebug() << "Restart";
+    scene->clear();
+    scene->removeItem(play);
+    player = new Player();
+    player->setPos(450,600);
+    player->setFlag(QGraphicsItem::ItemIsFocusable);
+    player->setFocus();
+    scene->addItem(player);
+
+    score = new Score();
+    scene->addItem(score);
+    score->setscore(0);
+    health = new Health();
+    health->setPos(health->x(),health->y()+25);
+    scene->addItem(health);
+    health->sethealth(7);
+    level = new Level();
+    level->setPos(level->x(),level->y()+50);
+    scene->addItem(level);
+    //level->setlevel(1);
+
+}
 void Game::gameOver(){
     scene->removeItem(player);
     scene->removeItem(score);
@@ -63,10 +88,12 @@ void Game::gameOver(){
     restart = new Button(QString(":/pic/restart.png"));
     restart->setPos(350,300);
     scene->addItem(restart);
-    exit = new Button(QString(":/pic/exit.png"));
-    exit->setPos(350,400);
-    scene->addItem(exit);
-    connect(restart,SIGNAL(clicked()),this,SLOT(start()));
-    connect(exit,SIGNAL(clicked()),this,SLOT(close()));
+    //exit = new Button(QString(":/pic/exit.png"));
+    //exit->setPos(350,400);
+    //scene->addItem(exit);
+    qDebug() << "restart";
+    connect(restart,SIGNAL(clicked()),this,SLOT(Restart()));
+    qDebug() << "restart";
+    //connect(exit,SIGNAL(clicked()),this,SLOT(close()));
 }
 
