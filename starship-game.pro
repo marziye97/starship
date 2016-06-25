@@ -15,7 +15,6 @@ TEMPLATE = app
 SOURCES += main.cpp \
     game.cpp \
     player.cpp \
-    enemy.cpp \
     spaceship.cpp \
     bullet.cpp \
     bullet1.cpp \
@@ -29,12 +28,12 @@ SOURCES += main.cpp \
     bottun.cpp \
     level.cpp \
     bubble1.cpp \
-    bubble2.cpp
+    bubble2.cpp \
+    enemy.cpp
 
 HEADERS  += \
     game.h \
     player.h \
-    enemy.h \
     spaceship.h \
     bullet.h \
     bullet1.h \
@@ -48,7 +47,8 @@ HEADERS  += \
     bottun.h \
     level.h \
     bubble1.h \
-    bubble2.h
+    bubble2.h \
+    enemy.h
 
 FORMS    +=
 

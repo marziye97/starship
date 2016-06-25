@@ -5,15 +5,20 @@
 #include <typeinfo>
 #include <stdlib.h>
 #include <QDebug>
+#include <QTimer>
 
 extern Game * game;
 
-Spaceship::Spaceship(QGraphicsItem *parent):Enemy(parent)
+Spaceship::Spaceship(QGraphicsItem *parent): QObject() , QGraphicsPixmapItem(parent)
 {
     power=20;
     int random_number = rand() % 700;
     setPos(random_number,0);
     setPixmap(QPixmap(":/pic/ship.gif"));
+    QTimer * timer = new QTimer(this);
+    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
+
+    timer->start(50);
 }
 
 int Spaceship::getpower()

@@ -33,7 +33,7 @@ void Game::start(){
     qDebug() << "start";
     scene->removeItem(play);
     player = new Player();
-    player->setPos(450,600);
+    player->setPos(450,800);
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
     scene->addItem(player);
@@ -72,7 +72,7 @@ void Game::Restart()
     scene->removeItem(restart);
     scene->removeItem(exit);
     player = new Player();
-    player->setPos(450,600);
+    player->setPos(450,800);
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
     scene->addItem(player);
