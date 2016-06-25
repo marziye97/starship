@@ -42,7 +42,7 @@ void Bullet1::move()
                 scene()->removeItem(colliding_items[i]);
                 delete colliding_items[i];
             //}
-            //else if(power1 != ship->getpower()){
+            //else if(power1 != ship->power){
                 scene()->removeItem(this);
                 delete this;
                 //ship->setpower(power1);

@@ -31,7 +31,6 @@ void Health::decrease()
 {
     health--;
     if(health==0){
-
         game->gameOver();
     }
     QFile healthFile("C:/Users/Marzi/Documents/starship/health.txt");
