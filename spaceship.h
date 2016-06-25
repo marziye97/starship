@@ -9,6 +9,7 @@ class Spaceship:public Enemy
 public:
     Spaceship(QGraphicsItem * parent=0);
     int getpower();
+    void setpower(int);
 private slots:
     void move();
 private:

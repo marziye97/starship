@@ -8,6 +8,7 @@
 #include <string>
 #include <QDebug>
 #include "game.h"
+#include <Windows.h>
 
 extern Game *game;
 Score::Score(QGraphicsItem *parent):QGraphicsTextItem(parent)

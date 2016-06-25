@@ -9,12 +9,10 @@ class Button : public QObject,public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    explicit Button(/*QGraphicsItem *parent = 0,*/QString);
+    explicit Button(QString);
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 signals:
     void clicked();
-public slots:
-
 };
 
 #endif // BUTTON_H

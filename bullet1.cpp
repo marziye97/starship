@@ -1,6 +1,7 @@
 #include "bullet1.h"
 #include <QTimer>
 #include <QList>
+#include <QDebug>
 #include "game.h"
 #include "spaceship.h"
 #include "award1.h"
@@ -25,30 +26,31 @@ void Bullet1::move()
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i < n; ++i){
         if (typeid(*(colliding_items[i])) == typeid(Spaceship)){
-            game->score->increase();
-            int random_numbetr= (rand()%2)+1;
-            if(random_numbetr == 1){
-                Award1 * award1 = new Award1();
-                award1->setPos(x(),y());
-                scene()->addItem(award1);
-            }
-            else if(random_numbetr == 2){
-                Award2 * award2 = new Award2();
-                award2->setPos(x(),y());
-                scene()->addItem(award2);
-            }
-            /*if(power1 == ship->getpower()){
+            //if(power1 == ship->getpower()){
+                game->score->increase();
+                int random_numbetr= (rand()%2)+1;
+                if(random_numbetr == 1){
+                    Award1 * award1 = new Award1();
+                    award1->setPos(x(),y());
+                    scene()->addItem(award1);
+                }
+                else if(random_numbetr == 2){
+                    Award2 * award2 = new Award2();
+                    award2->setPos(x(),y());
+                    scene()->addItem(award2);
+                }
                 scene()->removeItem(colliding_items[i]);
                 delete colliding_items[i];
-            }
-            else{
-                power1 -= ship->getpower();
-                break;
-            }*/
-            scene()->removeItem(colliding_items[i]);
-            delete colliding_items[i];
-            scene()->removeItem(this);
-            delete this;
+            //}
+            //else if(power1 != ship->getpower()){
+                scene()->removeItem(this);
+                delete this;
+                //ship->setpower(power1);
+                //return;
+            //}
+            /*scene()->removeItem(colliding_items[i]);
+            delete colliding_items[i];*/
+
             return;
         }
     }

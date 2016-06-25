@@ -11,7 +11,7 @@
 extern Game *game;
 Level::Level(QGraphicsItem *parent):QGraphicsTextItem(parent)
 {
-    QFile levelFile("/home/mary/Documents/qt/starship/level.txt");
+    QFile levelFile("C:/Users/Marzi/Documents/starship/level.txt");
     if(!levelFile.exists())
         qDebug()<<"doesn't exist";
     if(!levelFile.open(QFile::ReadOnly|QFile::Text)){
@@ -29,10 +29,9 @@ Level::Level(QGraphicsItem *parent):QGraphicsTextItem(parent)
 void Level::increase()
 {
     game->score->setscore(0);
-    game->health->sethealth(7);
     game->health->increase();
     level ++;
-    QFile levelFile("/home/mary/Documents/qt/starship/level.txt");
+    QFile levelFile("C:/Users/Marzi/Documents/starship/level.txt");
     if(!levelFile.exists())
         qDebug()<<"doesn't exist";
     if(!levelFile.open(QFile::WriteOnly|QFile::Text)){
@@ -52,7 +51,7 @@ int Level::getlevel()
 void Level::setlevel(int nlevel)
 {
     level=nlevel;
-    QFile levelFile("/home/mary/Documents/qt/starship/level.txt");
+    QFile levelFile("C:/Users/Marzi/Documents/starship/level.txt");
     if(!levelFile.exists())
         qDebug()<<"doesn't exist";
     if(!levelFile.open(QFile::WriteOnly|QFile::Text)){

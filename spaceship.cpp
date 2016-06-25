@@ -4,6 +4,7 @@
 #include <QList>
 #include <typeinfo>
 #include <stdlib.h>
+#include <QDebug>
 
 extern Game * game;
 
@@ -18,6 +19,12 @@ Spaceship::Spaceship(QGraphicsItem *parent):Enemy(parent)
 int Spaceship::getpower()
 {
     return power;
+}
+
+void Spaceship::setpower(int npower)
+{
+    power =power - npower;
+   qDebug()<<power;
 }
 void Spaceship::move(){
     QList<QGraphicsItem *> colliding_items = collidingItems();
