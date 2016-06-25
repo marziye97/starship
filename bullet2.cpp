@@ -7,6 +7,7 @@
 #include "award2.h"
 #include <stdlib.h>
 #include <typeinfo>
+#include <QtMath>
 
 extern Spaceship * ship;
 extern Game * game;
@@ -14,7 +15,7 @@ extern Game * game;
 Bullet2::Bullet2(QGraphicsItem *parent):Bullet(parent)
 {
     power2=10;
-    setPixmap(QPixmap(":/pic/bullet2.png"));
+    setPixmap(QPixmap(":/pic/bullet1.png"));
     QTimer * timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(50);
@@ -52,7 +53,11 @@ void Bullet2::move()
             return;
         }
     }
-    setPos(x(),y()-10);
+    int STEP_SIZE = 50; // sorat !!!
+    double theta = rotation(); // degrees
+    double dy = STEP_SIZE * qSin(qDegreesToRadians(theta));
+    double dx = STEP_SIZE * qCos(qDegreesToRadians(theta));
+    setPos(x()+dx, y()+dy);
     if (pos().y() < 0){
         scene()->removeItem(this);
         delete this;

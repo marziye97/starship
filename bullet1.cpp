@@ -15,7 +15,7 @@ extern Game * game;
 Bullet1::Bullet1(QGraphicsItem *parent):Bullet(parent)
 {
     power1=5;
-    setPixmap(QPixmap(":/pic/bullet1.png"));
+    setPixmap(QPixmap(":/pic/bullet2.png"));
     QTimer * timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(50);

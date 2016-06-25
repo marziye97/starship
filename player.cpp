@@ -53,9 +53,18 @@ void Player::keyPressEvent(QKeyEvent *event)
                 scene()->addItem(bullet1);
             }
             else if(game->score->getscore() >= 1000){
+                int angle = -90;
                 Bullet2 * bullet2 = new Bullet2();
                 bullet2->setPos(x()+40,y());
+                Bullet2 * bullet3 = new Bullet2();
+                bullet3->setPos(x()+40,y());
+
                 scene()->addItem(bullet2);
+                bullet2->setRotation(angle-20);
+                game->scene->addItem(bullet2);
+                bullet3->setRotation(angle+20);
+                game->scene->addItem(bullet3);
+
             }
         }
     }
