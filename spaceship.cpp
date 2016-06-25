@@ -25,6 +25,7 @@ void Spaceship::setpower(int npower)
 {
     power =power - npower;
    qDebug()<<power;
+//   return power;
 }
 void Spaceship::move(){
     QList<QGraphicsItem *> colliding_items = collidingItems();

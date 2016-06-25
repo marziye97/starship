@@ -87,7 +87,6 @@ void Game::Restart()
     level = new Level();
     level->setPos(level->x(),level->y()+50);
     scene->addItem(level);
-    //level->setlevel(1);
     QTimer *timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer->start(2000);

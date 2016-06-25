@@ -26,10 +26,12 @@ void Bullet1::move()
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i < n; ++i){
         if (typeid(*(colliding_items[i])) == typeid(Spaceship)){
-            //if(power1 == ship->getpower()){
+            //if(this->power1 == ship->getpower()){
                 game->score->increase();
-                int random_numbetr= (rand()%2)+1;
-                if(random_numbetr == 1){
+                int random_numbetr= rand()%3;
+                if(random_numbetr ==0){
+                }
+                else if(random_numbetr == 1){
                     Award1 * award1 = new Award1();
                     award1->setPos(x(),y());
                     scene()->addItem(award1);
@@ -42,10 +44,11 @@ void Bullet1::move()
                 scene()->removeItem(colliding_items[i]);
                 delete colliding_items[i];
             //}
-            //else if(power1 != ship->power){
+            //else if(this->power1 != ship->getpower()){
                 scene()->removeItem(this);
                 delete this;
                 //ship->setpower(power1);
+                //qDebug()<<power1;
                 //return;
             //}
             /*scene()->removeItem(colliding_items[i]);

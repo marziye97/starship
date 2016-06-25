@@ -60,4 +60,5 @@ OTHER_FILES += \
     level.txt \
     score.txt \
     health.txt \
-    level.txt
+    level.txt \
+    bullet1.txt
